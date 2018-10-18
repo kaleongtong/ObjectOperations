@@ -1,26 +1,9 @@
 # Javascript Object operations
 
-In this repository I will demonstrate ways to clone an object, add methods to access fields as well as adding objects to a master object itself.
-
-## Master object to work around with - Profile
-
-const profile = {
-  name: 'joh',
-  age: 20,
-  children: [{
-    name: 'pete',
-    age: 1,
-    toys: ['doll', 'dog']
-  },
-  {
-    name: 'nate',
-    age: 2,
-    toys: ['apple', 'banana']
-  }]
-};
 
 ## To clone an object, you can use $.extend or manually add in elements from one object to another one at a time
 
+```shell
 const profile = {
   name: 'joh',
   age: 20,
@@ -53,12 +36,12 @@ for(let i = 0; i < profile.children.length; i++){
    clone.children.push(newObj);
 
 }
+```
+You can also add an inner method to the object as well.
 
-## You can also add an inner method to the object(not prototype method) to access 
+For example, you can declare a function for the profile object to get number of toys for each child:
 
-//add method inside the profile object to get number of toys for each child
-
-
+```shell
 profile.numToy = function(){
    let strNum = '';
 
@@ -70,7 +53,10 @@ profile.numToy = function(){
 
 }
 
-//add method to add new children into the children property of the profile object
+```
+Here I have created a method to add new children into the children property of the profile object:
+
+```shell
 profile.addChildren = function(name, age, toys){
    const child = {};
    child.name = name;
@@ -81,6 +67,6 @@ profile.addChildren = function(name, age, toys){
 
 profile.addChildren('Peter', 3, ['toy1', 'toy2']);
 console.log(profile);
-
+```
 
 
